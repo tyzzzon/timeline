@@ -1,0 +1,10 @@
+<h2>{{event.title | uppercase}}</h2>
+<h4>Details:</h4>
+<div><span>id: </span>{{event.id}}</div>
+<div>
+  <label>title:
+    <input [(ngModel)]="event.title" placeholder="title">
+  </label>
+</div>
+<div><label>description: </label>{{event.description}}</div>
+<div><label>date: </label>{{event.date | date}}</div>
