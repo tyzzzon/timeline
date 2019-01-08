@@ -1,10 +1,26 @@
-<h2>{{event.title | uppercase}}</h2>
-<h4>Details:</h4>
-<div><span>id: </span>{{event.id}}</div>
-<div>
-  <label>title:
-    <input [(ngModel)]="event.title" placeholder="title">
-  </label>
+<h2>All Events</h2>
+<ul class="events">
+  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedEvent">
+    <div><span>id: </span>{{event.id}}</div>
+    <div>
+      <label>title:
+        <input [(ngModel)]="event.title" placeholder="title">
+      </label>
+    </div>
+    <div><label>description: </label>{{event.description}}</div>
+    <div><label>date: </label>{{event.date | date}}</div>
+  </li>
+</ul>
+
+<div *ngIf="selectedEvent">
+  <h2>{{selectedEvent.title | uppercase}}</h2>
+  <h4>Details:</h4>
+  <div><span>id: </span>{{selectedEvent.id}}</div>
+  <div>
+    <label>title:
+      <input [(ngModel)]="selectedEvent.title" placeholder="title">
+    </label>
+  </div>
+  <div><label>description: </label>{{selectedEvent.description}}</div>
+  <div><label>date: </label>{{selectedEvent.date | date}}</div>
 </div>
-<div><label>description: </label>{{event.description}}</div>
-<div><label>date: </label>{{event.date | date}}</div>

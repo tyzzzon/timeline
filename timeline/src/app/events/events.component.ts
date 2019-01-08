@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from "../event";
+import { EVENTS } from "../mock-events";
 
 @Component({
   selector: 'app-events',
@@ -7,16 +8,16 @@ import { Event } from "../event";
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  event: Event = {
-    id: 1,
-    title: 'Саша открыл офис в Новосибирске.',
-    description: 'Very beginning of .WRK',
-    date: '09.01.2011'
-  };
+  events = EVENTS;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  selectedEvent: Event;
+  onSelect(event: Event): void {
+    this.selectedEvent = event;
   }
 
 }
